@@ -1,0 +1,57 @@
+h1 {
+    text-align: center;
+    color: white !important;
+}
+
+h6 {
+    text-align: center;
+    font-style: italic;
+    font-weight: normal !important;
+    color: white !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Images/background.JPG');
+    background-size: 100% auto; /* Fits the width, auto height */
+    background-position: center center; /* Center horizontal and vertical */
+    filter: blur(2px); /* Adjust blur intensity as needed */
+    z-index: -1; /* Send the background behind other content */
+}
+
+.card {
+    opacity: 0.7;
+}
+
+.nav-pills .nav-link:hover {
+    background-color:rgba(135, 207, 235, 0.8);
+    color: blue;
+}
+
+.nav-pills .nav-link {
+    color:rgb(34, 34, 34);
+    background-color: rgb(255, 255, 255, 0.4);
+}
+
+.nav-pills .nav-link.active {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgba(0, 0, 255, 0.6) !important;
+}
+
+header,
+main,
+footer {
+    /* Add padding or margin to create space for the background */
+    padding-top: 50px; /* Adjust as needed */
+}

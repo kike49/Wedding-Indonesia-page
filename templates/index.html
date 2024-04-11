@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kike & Shintya</title>
+    <link rel="icon" type="image/png" href="../Images/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="background"></div>
+        <div class="container">
+            <h1 id="title"></h1>
+            <h6 id="subtitle"></h6>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row mt-3">
+                <!-- At this level the menu will be placed -->
+                <div class="col-sm-2">
+                    <select onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="id">Bahasa</option>
+                    </select>
+                    <ul class="nav nav-pills mt-3 flex-column" id="myTab" role="tablist">
+                        <li class="nav-item mb-1">
+                          <a class="nav-link" id="intro-tab" data-bs-toggle="tab" href="#intro" role="tab" aria-controls="intro" aria-selected="true"><span id="intro_tab_head"></span></a>
+                        </li>
+                        <li class="nav-item mb-1">
+                          <a class="nav-link" id="spain-tab" data-bs-toggle="tab" href="#spain" role="tab" aria-controls="spain" aria-selected="false"><span id="spain_tab_head"></span></a>
+                        </li>
+                        <li class="nav-item mb-1">
+                          <a class="nav-link" id="details-tab" data-bs-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false"><span id="event_tab_head"></span></a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" id="howto-tab" data-bs-toggle="tab" href="#howto" role="tab" aria-controls="howto" aria-selected="true"><span id="how_to_tab_head"></span></a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" id="RSVP-tab" data-bs-toggle="tab" href="#RSVP" role="tab" aria-controls="RSVP" aria-selected="false"><span id="rsvp_tab_head"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="travel-tab" data-bs-toggle="tab" href="#travel" role="tab" aria-controls="travel" aria-selected="false"><span id="travel_tab_head"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- And here the content of each section -->
+                <div class="col-sm-10 mt-2">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+                            <div class="card">
+                                <div class="card-body" id="intro_content"></div>
+                            </div>                    
+                        </div>
+                        <div class="tab-pane fade" id="spain" role="tabpanel" aria-labelledby="spain-tab">
+                            <div class="card">
+                                <div class="card-body" id="spain_content"></div>
+                                <!-- Insert here the carousel images? https://getbootstrap.com/docs/4.0/components/carousel/ -->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                            <div class="card">
+                                <div class="card-body" id="details_content"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="howto" role="tabpanel" aria-labelledby="howto-tab">
+                            <div class="card">
+                                <div class="card-body" id="howto_content"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="RSVP" role="tabpanel" aria-labelledby="RSVP-tab">
+                            <div class="card">
+                                <form class="card-body" id="rsvp_from" onsubmit="submitForm(event)">
+                                    <div class="mb-3" id="RSVP_content"></div>
+                                    <label id="name_form" for="name"></label><br>
+                                    <input type="text" id="name" name="name" required><br>
+                                    <label id="number_guest_form" for="number_of_people"></label><br>
+                                    <input type="number" id="number_of_people" name="number_of_people" min="1" required><br>
+                                    <label id="number_cars_form" for="number_of_cars"></label><br>
+                                    <input type="number" id="number_of_cars" name="number_of_cars" required><br>
+                                    <label id="allergies_form" for="food_allergies"></label><br>
+                                    <textarea id="food_allergies" name="food_allergies"></textarea><br>
+                                    <input type="submit" value="Submit">
+                                </form>
+                                <div class="card-body" id="confirmation_message" style="display: none;"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="travel" role="tabpanel" aria-labelledby="travel-tab">
+                            <div class="card">
+                                <div class="card-body" id="travel_content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Maybe duplicate here the navbar but minimized? -->
+    </footer>
+
+    <!-- Bootstrap JavaScript (and dependencies) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Heregoes the confirmation message -->
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+            // Show the confirmation message
+            document.getElementById('rsvp_from').style.display = 'none';
+            document.getElementById('confirmation_message').style.display = 'block';
+        }
+    </script>
+    <!-- Translation module -->
+    <script> 
+        const translations = {
+            'en': {
+                'title': 'We want you in Bogor!',
+                'subtitle': 'We are celebrating our love in Indonesia and we want you there. Here you will find all the information.',
+                'intro_tab_head': 'Introduction',
+                'spain_tab_head': "Spain's celebration",
+                'event_tab_head': "Event's details",
+                'how_to_tab_head': "How to",
+                'rsvp_tab_head': "RSVP",
+                'travel_tab_head': "Travelling to Indonesia",
+                'intro_content': 'Content to fill with the intro',
+                'spain_content': 'Content to fill with the celebration in Spain',
+                'details_content': 'Content to fill with the details of the wedding in Indonesia',
+                'howto_content': 'Content to fill with the tips and get around for the Indonesian wedding',
+                'RSVP_content': 'Content to fill with the RSVP',
+                'name_form': 'Your name: ',
+                'number_guest_form': 'How may people come with you?',
+                'number_cars_form': 'How many cars will your group take?',
+                'allergies_form': 'Any food allergies to consider: ',
+                'confirmation_message': 'Thanks for confirming your presence!',
+                'travel_content': 'Content to fill with the travel to Indonesia'
+            },
+            'es': {
+                'title': 'Te esperamos en Bogor',
+                'subtitle': 'Celebramos nuestro amor en Bogor',
+                'intro_tab_head': 'Introducción',
+                'spain_tab_head': "Celebración en España",
+                'event_tab_head': "Detalles del evento",
+                'how_to_tab_head': "Información útil",
+                'rsvp_tab_head': "Confirmar asistencia",
+                'travel_tab_head': "Consejos de viaje a Indonesia",
+                'intro_content': 'Aquí el contenido de la intro',
+                'spain_content': 'Aquí el contenido de la boda en España',
+                'details_content': 'Aquí los detalles de la boda en Indonesia',
+                'howto_content': 'Aquí las recomendaciones de como llegar, moverse y que hacer para la boda de Indonesia',
+                'RSVP_content': 'Aquí para enviar la RSVP',
+                'name_form': 'Tu nombre: ',
+                'number_guest_form': '¿Cuántas personas viene contigo?',
+                'number_cars_form': '¿Cuántos coches vais a traer?',
+                'allergies_form': 'Alergias a tener en cuenta: ',
+                'confirmation_message': 'Gracias por confirmar tu asistencia',
+                'travel_content': 'Aquí recomendaciones para viajeros a Indonesia'
+            },
+            'id': {
+                'title': 'Kita tunggu kamu di Bogor',
+                'subtitle': 'Ayo ke Kebun Raya buat cinta acara',
+                'intro_tab_head': 'Introdusi',
+                'spain_tab_head': "Acara di Spanyol",
+                'event_tab_head': "Acara di Indonesia",
+                'how_to_tab_head': "Gimana",
+                'rsvp_tab_head': "Konfirmasi",
+                'travel_tab_head': "Perjalanan ke Indonesia",
+                'intro_content': 'Disini tulis uat introdusi',
+                'spain_content': 'Disini foto dan acara di Spanyol',
+                'details_content': 'Disini acara rundown: waktu, tempat, akses',
+                'howto_content': 'Disini gimana di parkir, tinggal, kontak',
+                'RSVP_content': 'Disini buat confirmasi RSVP',
+                'name_form': 'Nama kamu: ',
+                'number_guest_form': 'Berapa orang datang sama kamu?',
+                'number_cars_form': 'Berapa mobil kamu ambil?',
+                'allergies_form': 'Nggak bisa makan itu: ',
+                'confirmation_message': 'Terima kasih banyak buat konfirmasi',
+                'travel_content': 'Disini rekomendasi buat pergi ke Indonesia'
+            }
+        };
+        // Function to change language
+        function changeLanguage(lang) {
+            const keys = Object.keys(translations['en']);
+            keys.forEach(key => {
+                document.getElementById(key).textContent = translations[lang][key];
+            });
+        }
+        // Initial translation (default language)
+        changeLanguage('en');
+    </script>
+</body>
+</html>
