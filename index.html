@@ -77,7 +77,7 @@
                         </div>
                         <div class="tab-pane fade" id="RSVP" role="tabpanel" aria-labelledby="RSVP-tab">
                             <div class="card">
-                                <form class="card-body" id="rsvp_from" onsubmit="submitForm(event)" action="https://kike49.pythonanywhere.com/submit" method="post">
+                                <form class="card-body" id="rsvp_from" onsubmit="submitForm(event)">
                                     <div class="mb-3" id="RSVP_content"></div>
                                     <label id="name_form" for="name"></label><br>
                                     <input type="text" id="name" name="name" required><br>
@@ -110,8 +110,38 @@
     <!-- Bootstrap JavaScript (and dependencies) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <!-- Heregoes the confirmation message -->
+    <!-- Here goes the confirmation message -->
     <script>
+        function submitForm(event) {
+        event.preventDefault();
+        // Access form data as before
+        const name = document.getElementById('name').value;
+        const numberOfPeople = document.getElementById('number_of_people').value;
+        const numberOfCars = document.getElementById('number_of_cars').value;
+        const foodAllergies = document.getElementById('food_allergies').value;
+        // Prepare data for submission (might differ based on service)
+        const data = {
+            "entry.1058940226": name,
+            "entry.227678924": numberOfPeople,
+            "entry.87866600": numberOfCars,
+            "entry.281509519": foodAllergies,
+        };
+        // Send data to the third-party service endpoint (replace with actual URL)
+        fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSdVb4Rv0PMJgAdHJx340f1rY3FL_W66uDNEv5NWGf_uXPL8Ew/formResponse', {
+        method: 'POST',
+        body: new URLSearchParams(data) // Convert data to URLSearchParams format
+    })
+        .then(response => response.json()) // Process the response (optional)
+        .then(data => {
+            // Display a confirmation message or handle success (optional)
+            console.log("Data submitted successfully:", data);
+        })
+        .catch(error => {
+            console.error("Error submitting data:", error);
+        });
+        // Optionally display a confirmation message
+    }
+
         function submitForm(event) {
             event.preventDefault(); // Prevent the default form submission
             // Show the confirmation message
