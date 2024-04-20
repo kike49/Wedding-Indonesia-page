@@ -77,7 +77,7 @@
                         </div>
                         <div class="tab-pane fade" id="RSVP" role="tabpanel" aria-labelledby="RSVP-tab">
                             <div class="card">
-                                <form class="card-body" id="rsvp_from" onsubmit="submitForm(event)">
+                                <form class="card-body" id="rsvp_from" onsubmit="submitForm(event)" action="https://kike49.pythonanywhere.com/submit" method="post">
                                     <div class="mb-3" id="RSVP_content"></div>
                                     <label id="name_form" for="name"></label><br>
                                     <input type="text" id="name" name="name" required><br>
