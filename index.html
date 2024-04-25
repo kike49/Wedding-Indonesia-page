@@ -16,7 +16,7 @@
         <div class="background"></div>
         <div class="container">
             <h1 id="title"></h1>
-            <h6 id="subtitle"></h6>
+            <h5 id="subtitle"></h5>
         </div>
     </header>
 
@@ -32,19 +32,19 @@
                     </select>
                     <ul class="nav nav-pills mt-3 flex-column" id="myTab" role="tablist">
                         <li class="nav-item mb-1">
-                          <a class="nav-link" id="intro-tab" data-bs-toggle="tab" href="#intro" role="tab" aria-controls="intro" aria-selected="true"><span id="intro_tab_head"></span></a>
+                          <a class="nav-link" id="invitation-tab" data-bs-toggle="tab" href="#invitation" role="tab" aria-controls="invitation" aria-selected="true"><span id="invitation_tab_head"></span></a>
                         </li>
                         <li class="nav-item mb-1">
-                          <a class="nav-link" id="spain-tab" data-bs-toggle="tab" href="#spain" role="tab" aria-controls="spain" aria-selected="false"><span id="spain_tab_head"></span></a>
-                        </li>
-                        <li class="nav-item mb-1">
-                          <a class="nav-link" id="details-tab" data-bs-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="false"><span id="event_tab_head"></span></a>
-                        </li>
-                        <li class="nav-item mb-1">
-                            <a class="nav-link" id="howto-tab" data-bs-toggle="tab" href="#howto" role="tab" aria-controls="howto" aria-selected="true"><span id="how_to_tab_head"></span></a>
-                        </li>
+                            <a class="nav-link" id="journey-tab" data-bs-toggle="tab" href="#journey" role="tab" aria-controls="journey" aria-selected="false"><span id="journey_tab_head"></span></a>
+                          </li>
                         <li class="nav-item mb-1">
                             <a class="nav-link" id="RSVP-tab" data-bs-toggle="tab" href="#RSVP" role="tab" aria-controls="RSVP" aria-selected="false"><span id="rsvp_tab_head"></span></a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" id="schedule-tab" data-bs-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false"><span id="schedule_tab_head"></span></a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" id="important_notes-tab" data-bs-toggle="tab" href="#important_notes" role="tab" aria-controls="important_notes" aria-selected="true"><span id="important_notes_tab_head"></span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="travel-tab" data-bs-toggle="tab" href="#travel" role="tab" aria-controls="travel" aria-selected="false"><span id="travel_tab_head"></span></a>
@@ -54,25 +54,15 @@
                 <!-- And here the content of each section -->
                 <div class="col-sm-10 mt-2">
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade" id="intro" role="tabpanel" aria-labelledby="intro-tab">
+                        <div class="tab-pane fade" id="invitation" role="tabpanel" aria-labelledby="invitation-tab">
                             <div class="card">
-                                <div class="card-body" id="intro_content"></div>
+                                <div class="card-body" id="invitation_content" style="white-space: pre-line;"></div>
                             </div>                    
                         </div>
-                        <div class="tab-pane fade" id="spain" role="tabpanel" aria-labelledby="spain-tab">
+                        <div class="tab-pane fade" id="journey" role="tabpanel" aria-labelledby="journey-tab">
                             <div class="card">
-                                <div class="card-body" id="spain_content"></div>
+                                <div class="card-body" id="journey_content"></div>
                                 <!-- Insert here the carousel images? https://getbootstrap.com/docs/4.0/components/carousel/ -->
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
-                            <div class="card">
-                                <div class="card-body" id="details_content"></div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="howto" role="tabpanel" aria-labelledby="howto-tab">
-                            <div class="card">
-                                <div class="card-body" id="howto_content"></div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="RSVP" role="tabpanel" aria-labelledby="RSVP-tab">
@@ -90,6 +80,16 @@
                                     <input type="submit" value="Submit">
                                 </form>
                                 <div class="card-body" id="confirmation_message" style="display: none;"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                            <div class="card">
+                                <div class="card-body" id="schedule_content"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="important_notes" role="tabpanel" aria-labelledby="important_notes-tab">
+                            <div class="card">
+                                <div class="card-body" id="important_notes_content"></div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="travel" role="tabpanel" aria-labelledby="travel-tab">
@@ -140,74 +140,84 @@
     <script> 
         const translations = {
             'en': {
-                'title': 'We want you in Bogor!',
-                'subtitle': 'We are celebrating our love in Indonesia and we want you there. Here you will find all the information.',
-                'intro_tab_head': 'Introduction',
-                'spain_tab_head': "Spain's celebration",
-                'event_tab_head': "Event's details",
-                'how_to_tab_head': "How to",
+                'title': 'Kike & Shintya',
+                'subtitle': 'Yes, we are married!',
+
+                'invitation_tab_head': 'Invitation',
+                'journey_tab_head': "The Journey",
                 'rsvp_tab_head': "RSVP",
+                'schedule_tab_head': "Theme and Schedule",
+                'important_notes_tab_head': "Important notes (Must Read)",
                 'travel_tab_head': "Travelling to Indonesia",
-                'intro_content': 'Content to fill with the intro',
-                'spain_content': 'Content to fill with the celebration in Spain',
-                'details_content': 'Content to fill with the details of the wedding in Indonesia',
-                'howto_content': 'Content to fill with the tips and get around for the Indonesian wedding',
-                'RSVP_content': 'Content to fill with the RSVP',
-                'name_form': 'Your name: ',
+
+                'invitation_content': 'You are invited to:\nLunch Reception in Bogor Botanical Garden\nMelchior Avenue\n15 June 202411.00-15.00 (GMT +7)',
+                'journey_content': "On 20 October 2023, we tied our knots at a civil registry in Spain. Two months later, we celebrated it on a beachside wedding at Candado Beach, Malaga. Now, it's time to celebrate in Indonesia!",
+                'RSVP_content': 'Notes:\n• It is a seating lunch event. Please inform us the exact number of people that will attend to ensure the seating avalibility.\n• Kebun Raya Bogor parking is limited, especially on weekends. Please let us know your parking needs to ensure its availibility.',
+                'schedule_content': 'Schedule:\n11.00: Welcome drink\n12.00: Ceremony (re-enactment)\n12.30: Lunch\n13.15: First dance & Cake\n13.30: Games and entretaintment\n14.00: Group photos\n14.45: Send-off\n\nDresscode: Comfortable semi-formal attire with a tropical touch (e.g. cheerful pattern, bright color).\n\nNotes: Please arrive on time to maximize your experience. Photo session and souvenir distribution will be held at the end of the event.',
+                'important_notes_content': '• Please bring the filled-up RSVP card to the event venue and show it to the gatekeeper at the Bogor Botanical Garden. The card is will grant you a free entry to the park. Guests should not buy entrance tickets.\n• Bogor Botanical Garden opens at 08.00-16.00. If you want to visit the park itself, feel free to arrive before the event time, or stay longer.\n• Please wear comfortable clothes as the event will be held outdoor.\n• Limited parking avalibility. Please advise us regarding your parking needs, so we can coordinate it with the management.\n• As the event is held in public space, we are not allowed to serve alcohol. It would be smoke-free as well.',
+                'travel_content': 'We are so thrilled that you are coming to another continent to celebrate another special day with us! Here we compile the most important information regarding the travel to and within Indonesia.',
+                
+                'name_form': 'Your name:',
                 'number_guest_form': 'How may people come with you?',
                 'number_cars_form': 'How many cars will your group take?',
-                'allergies_form': 'Any food allergies to consider: ',
-                'confirmation_message': 'Thanks for confirming your presence!',
-                'travel_content': 'Content to fill with the travel to Indonesia'
+                'allergies_form': 'Any food allergies to consider? If yes, please specify',
+                'confirmation_message': 'Thanks for confirming your presence!'
             },
             'es': {
-                'title': 'Te esperamos en Bogor',
-                'subtitle': 'Celebramos nuestro amor en Bogor',
-                'intro_tab_head': 'Introducción',
-                'spain_tab_head': "Celebración en España",
-                'event_tab_head': "Detalles del evento",
-                'how_to_tab_head': "Información útil",
-                'rsvp_tab_head': "Confirmar asistencia",
-                'travel_tab_head': "Consejos de viaje a Indonesia",
-                'intro_content': 'Aquí el contenido de la intro',
-                'spain_content': 'Aquí el contenido de la boda en España',
-                'details_content': 'Aquí los detalles de la boda en Indonesia',
-                'howto_content': 'Aquí las recomendaciones de como llegar, moverse y que hacer para la boda de Indonesia',
-                'RSVP_content': 'Aquí para enviar la RSVP',
-                'name_form': 'Tu nombre: ',
+                'title': 'Kike & Shintya',
+                'subtitle': 'Sí, ¡nos casamos!',
+
+                'invitation_tab_head': 'Invitación',
+                'journey_tab_head': "La historia de amor",
+                'rsvp_tab_head': "Confirma tu asistencia",
+                'schedule_tab_head': "Temática y agenda",
+                'important_notes_tab_head': "Información importante (Leer)",
+                'travel_tab_head': "Viajar a Indonesia",
+
+                'invitation_content': 'Estáis invitados a:\nBanquete en el Jardín Botánico de Bogor\nAvenida Melchior\n15 de Junio 2024\n11.00-15.00 (GMT +7)',
+                'journey_content': "El 20 de octubre del año pasado, nos unimos en matrimonio en el registro civil en España. Dos meses después, lo celebramos a pie de playa en el club Candado Beach, en Málaga. Ahora, ¡toca celebrarlo en Indonesia!",
+                'RSVP_content': 'Importante:\n• Es un almuerzo formal con mesas y asiento asignado. Por favor, confirma tu presencia y tus acompañantes para asegurar la disponibilidad\n• El parking en el Jardín Botánico de Bogor es muy limitado. Infórmanos de tus necesidades para garantizar disponibilidad.',
+                'schedule_content': 'Agenda:\n11.00: Bebida de bienvenida\n12.00: Ceremonia\n12.30: Almuerzo\n13.15: Baile de novios y tarta\n13.30: Juegos y entretenimiento\n14.00: Fotos grupales\n14.45: Despedida\n\nCódigo de vestimenta: Ropa cómoda sema-formal con un toque tropical (por ejemplo estampados alegres y colores vivos).\n\nNotas: Por favor, llega a tiempo para disfrutar de la experiencia completa. La sesión de fotos y entrega de souvenirs será al final del evento.',
+                'important_notes_content': '• Trae tu tarjeta de invitación (te la haremos llegar en Indonesia) al lugar de la celebración, ya que será canjeada por una entrada gratuita al Jardín Botánico de Bogor.\n• El Jardín Botánico de Bogor abre de 08.00 a 16.00. Si quieres visitar el parque, te animamos a que llegues antes y te des un paseo por él. Es de lo mas bonito de la ciudad y donde el presidente del país tiene su residencia oficial.\n• Trae ropa cómoda porque el evento será en exteriores y puede hacer calor (traje, zapatos, corbata desaconsejados, mejor una camisa y pantalones chinos).\n• El parking es limitado. Recuerda informarnos para poder coordinar con la dirección del Jardín Botánico.\n• El evento es en un espacio público y verde, por lo que no estará permitido servir alcohol ni fumar.',
+                'travel_content': 'Nos encanta que muchos os desplacéis a este maravilloso país para venir a la celebración con nosotros. Aquí os preparamos unas recomendaciones generales para el país que os ayudarán a tener una estancia mas agradable y entender mejor la cultura.',
+
+                'name_form': 'Tu nombre:',
                 'number_guest_form': '¿Cuántas personas viene contigo?',
                 'number_cars_form': '¿Cuántos coches vais a traer?',
-                'allergies_form': 'Alergias a tener en cuenta: ',
-                'confirmation_message': 'Gracias por confirmar tu asistencia',
-                'travel_content': 'Aquí recomendaciones para viajeros a Indonesia'
+                'allergies_form': '¿Alguna alergia a tener en cuenta? En caso afirmativo, ¿cuáles?',
+                'confirmation_message': '¡Gracias por confirmar tu asistencia!',
             },
             'id': {
-                'title': 'Kita tunggu kamu di Bogor',
-                'subtitle': 'Ayo ke Kebun Raya buat cinta acara',
-                'intro_tab_head': 'Introdusi',
-                'spain_tab_head': "Acara di Spanyol",
-                'event_tab_head': "Acara di Indonesia",
-                'how_to_tab_head': "Gimana",
-                'rsvp_tab_head': "Konfirmasi",
-                'travel_tab_head': "Perjalanan ke Indonesia",
-                'intro_content': 'Disini tulis uat introdusi',
-                'spain_content': 'Disini foto dan acara di Spanyol',
-                'details_content': 'Disini acara rundown: waktu, tempat, akses',
-                'howto_content': 'Disini gimana di parkir, tinggal, kontak',
-                'RSVP_content': 'Disini buat confirmasi RSVP',
-                'name_form': 'Nama kamu: ',
-                'number_guest_form': 'Berapa orang datang sama kamu?',
-                'number_cars_form': 'Berapa mobil kamu ambil?',
-                'allergies_form': 'Nggak bisa makan itu: ',
+                'title': 'Kike & Shintya',
+                'subtitle': 'Yes, we are married!',
+
+                'invitation_tab_head': 'Undangan',
+                'journey_tab_head': "Perjalanan Cinta",
+                'rsvp_tab_head': "Registrasi",
+                'schedule_tab_head': "Jadwal dan Tema Acara",
+                'important_notes_tab_head': "Informasi Penting (Wajib Dibaca)",
+                'travel_tab_head': "Travelling to Indonesia",
+
+                'invitation_content': 'Datang dan hadiri perayaan cinta kami dengan:\nPiknik di Kebun Raya Bogor\nLokasi: Melchior Avenue\nHari/Tanggal: Sabtu, 15 Juni 2024\nJam: 11.00-15.00 WIB',
+                'journey_content': 'Pada 20 Oktober 2023, kami meresmikan ikatan cinta kami di Spanyol. Dua bulan kemudian, kami merayakan pernikahan kami di Pantai Candado, Malaga. Kini saatnya kita berbagi kebahagian dengan kalian di Indonesia!',
+                'RSVP_content': 'Catatan:\n• Acara makan siang akan diselenggarakan secara duduk bersama. Oleh karena itu, mohon mengisi jumlah tamu dengan tepat untuk memastikan jumlah kursi yang dibutuhkan.\n• Ketersediaan parkir di Kebun Raya Bogor terbatas, terutama di akhir pekan. Mohon informasikan kebutuhan parkir dengan tepat untuk menghindari kekurangan lahan parkir.',
+                'schedule_content': 'Jadwal acara:\n11.00: Penyambutan tamu\n12.00: Prosesi Akad (Peragaan Ulang)\n12.30: Makan siang\n13.15: Dansa dan prosesi potong kue\n13.30: Games\n14.00: Sesi foto bersama pengantin\n14.45: Penutupan\n\nSaran berpakaian: Semi-formal dengan sentuhan tropis, tapi harus nyaman tentunya! (contoh: baju warna terang, baju bermotif ceria).\n\nCatatan: Harap datang tepat waktu agar bisa menikmati acara secara maksimal. Sesi foto dan pembagian souvenir akan dilakukan di akhir acara.',
+                'important_notes_content': '• Mohon membawa kartu undangan RSVP yang telah diisi ke lokasi acara dan tunjukkan ke petugas di gerbang masuk Kebun Raya Bogor. Kartu tersebut berlaku sebagai tiket masuk. Tamu tidak perlu membeli tiket masuk.\n• Kebun Raya Bogor buka pukul 08.00-16.00. Tamu boleh datang lebih awal jika ingin berkeliling Kebun Raya Bogor sebelum acara (ataupun setelahnya).\n• Harap mengenakan pakaian yang nyaman, mengingat acara dilaksanakan siang hari di ruang terbuka (outdoor).\n• Jumlah parkir di Kebun Raya Bogor cukup terbatas. Mohon koordinasikan dengan kami kebutuhan parkir agar bisa dikoordinasikan dengan pihak manajemen.\n• Acara ini bebas asap rokok dan alkohol.',
+                'travel_content': 'Ini informasi buat perjalanan ke Indonesia buat orang asin. Cuma sedia di Inggris atau Spanyol.',
+
+                'name_form': 'Nama kamu:',
+                'number_guest_form': 'Jumlah tamu:',
+                'number_cars_form': 'Berapa Anda perlu parkir mobil/motor?',
+                'allergies_form': 'Apa Anda punya alergi makanan? Jika iya, mohon sebutkan.',
                 'confirmation_message': 'Terima kasih banyak buat konfirmasi',
-                'travel_content': 'Disini rekomendasi buat pergi ke Indonesia'
             }
         };
         // Function to change language
         function changeLanguage(lang) {
             const keys = Object.keys(translations['en']);
             keys.forEach(key => {
-                document.getElementById(key).textContent = translations[lang][key];
+                document.getElementById(key).innerHTML = translations[lang][key];
+                document.getElementById(key).style.whiteSpace = 'pre-line'
             });
         }
         // Initial translation (default language)
