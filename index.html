@@ -12,51 +12,47 @@
 </head>
 
 <body>
+    <div class="background"></div>
     <header>
-        <div class="background"></div>
-        <div class="container">
-            <h1 id="title"></h1>
-            <h5 id="subtitle"></h5>
-        </div>
+            <div class="mx-auto">  
+                <h1 id="title"></h1>
+                <h5 id="subtitle"></h5>
+            </div>
+            <div class="d-flex flex-row ms-3 mt-1">
+                <button type="button" class="btn btn-light me-3 language-button" onclick="changeLanguage('english')">English</button>
+                <button type="button" class="btn btn-light me-3 language-button" onclick="changeLanguage('español')">Español</button>
+                <button type="button" class="btn btn-light language-button" onclick="changeLanguage('bahasa')">Bahasa</button>
+            </div>               
     </header>
-
     <main>
         <div class="container-fluid">
             <div class="row mt-3">
                 <!-- At this level the menu will be placed -->
                 <div class="col-sm-2">
-                    <select onchange="changeLanguage(this.value)">
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="id">Bahasa</option>
-                    </select>
-                    <ul class="nav nav-pills mt-3 flex-column" id="myTab" role="tablist">
-                        <li class="nav-item mb-1">
-                          <a class="nav-link" id="invitation-tab" data-bs-toggle="tab" href="#invitation" role="tab" aria-controls="invitation" aria-selected="true"><span id="invitation_tab_head"></span></a>
-                        </li>
-                        <li class="nav-item mb-1">
-                            <a class="nav-link" id="journey-tab" data-bs-toggle="tab" href="#journey" role="tab" aria-controls="journey" aria-selected="false"><span id="journey_tab_head"></span></a>
-                          </li>
-                        <li class="nav-item mb-1">
-                            <a class="nav-link" id="RSVP-tab" data-bs-toggle="tab" href="#RSVP" role="tab" aria-controls="RSVP" aria-selected="false"><span id="rsvp_tab_head"></span></a>
-                        </li>
-                        <li class="nav-item mb-1">
-                            <a class="nav-link" id="schedule-tab" data-bs-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false"><span id="schedule_tab_head"></span></a>
-                        </li>
-                        <li class="nav-item mb-1">
-                            <a class="nav-link" id="important_notes-tab" data-bs-toggle="tab" href="#important_notes" role="tab" aria-controls="important_notes" aria-selected="true"><span id="important_notes_tab_head"></span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="travel-tab" data-bs-toggle="tab" href="#travel" role="tab" aria-controls="travel" aria-selected="false"><span id="travel_tab_head"></span></a>
-                        </li>
-                    </ul>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Menu
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" role="tablist">
+                            <!-- Dropdown menu links -->
+                            <a class="dropdown-item" id="invitation-tab" data-bs-toggle="tab" href="#invitation" role="tab" aria-controls="invitation" aria-selected="true"><span id="invitation_tab_head"></span></a>
+                            <a class="dropdown-item" id="journey-tab" data-bs-toggle="tab" href="#journey" role="tab" aria-controls="journey" aria-selected="false"><span id="journey_tab_head"></span></a>
+                            <a class="dropdown-item" id="RSVP-tab" data-bs-toggle="tab" href="#RSVP" role="tab" aria-controls="RSVP" aria-selected="false"><span id="rsvp_tab_head"></span></a>
+                            <a class="dropdown-item" id="schedule-tab" data-bs-toggle="tab" href="#schedule" role="tab" aria-controls="schedule" aria-selected="false"><span id="schedule_tab_head"></span></a>
+                            <a class="dropdown-item" id="important_notes-tab" data-bs-toggle="tab" href="#important_notes" role="tab" aria-controls="important_notes" aria-selected="true"><span id="important_notes_tab_head"></span></a>
+                            <a class="dropdown-item" id="travel-tab" data-bs-toggle="tab" href="#travel" role="tab" aria-controls="travel" aria-selected="false"><span id="travel_tab_head"></span></a>                     
+                        </div>
+                    </div>
                 </div>
                 <!-- And here the content of each section -->
                 <div class="col-sm-10 mt-2">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade" id="invitation" role="tabpanel" aria-labelledby="invitation-tab">
                             <div class="card">
-                                <div class="card-body" id="invitation_content" style="white-space: pre-line;"></div>
+                                <div class="card-body" id="invitation_content"></div>
+                                <div class="ms-2">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d847.6325696319809!2d106.79589426951723!3d-6.602156667375417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMzYnMDcuOCJTIDEwNsKwNDcnNDcuNSJF!5e1!3m2!1sen!2ses!4v1714073005199!5m2!1sen!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
                             </div>                    
                         </div>
                         <div class="tab-pane fade" id="journey" role="tabpanel" aria-labelledby="journey-tab">
@@ -77,8 +73,8 @@
                                     <input type="number" id="number_of_cars" name="number_of_cars" required><br>
                                     <label id="allergies_form" for="food_allergies"></label><br>
                                     <textarea id="food_allergies" name="food_allergies"></textarea><br>
-                                    <input type="submit" value="Submit">
-                                </form>
+                                    <input type="submit" value="Submit" style="background-color: #5C636A; color: #ffffff;">
+                                </form>                                
                                 <div class="card-body" id="confirmation_message" style="display: none;"></div>
                             </div>
                         </div>
@@ -108,8 +104,7 @@
     </footer>
 
 <!-- Bootstrap JavaScript (and dependencies) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Here the form submision function -->
     <script>
@@ -139,7 +134,7 @@
 <!-- Translation module -->
     <script> 
         const translations = {
-            'en': {
+            'english': {
                 'title': 'Kike & Shintya',
                 'subtitle': 'Yes, we are married!',
 
@@ -163,7 +158,7 @@
                 'allergies_form': 'Any food allergies to consider? If yes, please specify',
                 'confirmation_message': 'Thanks for confirming your presence!'
             },
-            'es': {
+            'español': {
                 'title': 'Kike & Shintya',
                 'subtitle': 'Sí, ¡nos casamos!',
 
@@ -187,7 +182,7 @@
                 'allergies_form': '¿Alguna alergia a tener en cuenta? En caso afirmativo, ¿cuáles?',
                 'confirmation_message': '¡Gracias por confirmar tu asistencia!',
             },
-            'id': {
+            'bahasa': {
                 'title': 'Kike & Shintya',
                 'subtitle': 'Yes, we are married!',
 
@@ -212,16 +207,26 @@
                 'confirmation_message': 'Terima kasih banyak buat konfirmasi',
             }
         };
+
         // Function to change language
         function changeLanguage(lang) {
-            const keys = Object.keys(translations['en']);
+            const keys = Object.keys(translations['english']);
             keys.forEach(key => {
                 document.getElementById(key).innerHTML = translations[lang][key];
                 document.getElementById(key).style.whiteSpace = 'pre-line'
             });
+            const buttons = document.querySelectorAll('.language-button');
+            buttons.forEach(button => {
+                button.classList.remove('btn-info'); // Remove previous selection
+                button.classList.add('btn-light'); // Reset to default style
+                if (button.textContent.toLowerCase() === lang) {
+                    button.classList.remove('btn-light');
+                    button.classList.add('btn-info');
+                }
+            });
         }
         // Initial translation (default language)
-        changeLanguage('en');
+        changeLanguage('english');
     </script>
 </body>
 </html>
