@@ -46,3 +46,17 @@ footer {
     /* Add padding or margin to create space for the background */
     padding-top: 50px; /* Adjust as needed */
 }
+
+.nav-tabs .nav-link.active {
+    background-color: rgba(146, 100, 100, 0) !important;
+    color: blue !important;
+}
+
+.nav-tabs .nav-link {
+    color: black !important;
+}
+
+.accordion-header,
+.accordion-body {
+    background-color: #f0f0f0 !important;
+}
