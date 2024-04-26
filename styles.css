@@ -47,16 +47,10 @@ footer {
     padding-top: 50px; /* Adjust as needed */
 }
 
-.nav-tabs .nav-link.active {
-    background-color: rgba(146, 100, 100, 0) !important;
-    color: blue !important;
-}
-
 .nav-tabs .nav-link {
     color: black !important;
 }
 
-.accordion-header,
-.accordion-body {
-    background-color: #f0f0f0 !important;
+.accordion-item {
+    background-color: rgba(255, 255, 255, 0) !important;
 }
