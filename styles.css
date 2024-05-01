@@ -1,38 +1,108 @@
-h1 {
-    text-align: center;
-    color: rgb(0, 0, 0) !important;
+@font-face {
+    font-family: 'Nourd';
+    src: url('/Fonts/woff2/nourd_heavy.woff2') format('woff2'),
+        url('/Fonts/woff/nourd_heavy.woff') format('woff');
+        font-weight: 800;
+    src: url('/Fonts/woff2/nourd_bold.woff2') format('woff2'),
+        url('/Fonts/woff/nourd_bold.woff') format('woff');
+        font-weight: 700;
+    src: url('/Fonts/woff2/nourd_semi_bold.woff2') format('woff2'),
+        url('/Fonts/woff/nourd_semi_bold.woff') format('woff');
+        font-weight: 600;
+    src: url('/Fonts/woff2/nourd_medium.woff2') format('woff2'),
+        url('/Fonts/woff/nourd_medium.woff') format('woff');
+        font-weight: 500;
+    src: url('/Fonts/woff2/nourd_regular.woff2') format('woff2'),
+        url('/Fonts/woff/nourd_regular.woff') format('woff');
+        font-weight: 400;
+    src: url('/Fonts/woff2/nourd_light.woff2') format('woff2'),
+        url('/Fonts/woff/nourd_light.woff') format('woff');
+        font-weight: 300;
+    font-weight: 400; /* Default size */
 }
 
-h5 {
-    text-align: center;
-    font-style: italic;
-    font-weight: normal !important;
-    color: rgb(0, 0, 0) !important;
+@font-face {
+    font-family: 'MoonTime';
+    src: url('/Fonts/woff2/MoonTime-Regular.woff2') format('woff2'),
+    url('/Fonts/woff/MoonTime-Regular.woff') format('woff');
+}
+
+b {
+    font-family: 'Nourd' !important;
+    font-weight: 700;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    overflow-x: hidden;
+    font-family: 'Nourd' !important;
+    background-color: #FAF7F2 !important;
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
+.background-photo {
+    height: auto;
     width: 100%;
-    height: 100%;
-    background-image: url('Images/background2.JPG');
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center center; /* Center horizontal and vertical */
-    filter: blur(2px); /* Adjust blur intensity as needed */
-    z-index: -1; /* Send the background behind other content */
-    overflow: auto; /* Enable scrolling for the background */
+}
+
+.celebrate-love {
+    font-family: 'Nourd';
+    font-size: 2rem;
+    color: #CD6471;
+}
+
+.kike-shintya {
+    font-family: 'MoonTime';
+    font-size: 6rem;
+    color: #CD6471;
+}
+
+.date {
+    font-family: 'Nourd';
+    font-size: 2rem;
+    color: #CD6471;
+}
+
+.address {
+    font-family: 'Nourd';
+    font-size: 1rem;
+    color: #CD6471;
+}
+
+.time {
+    font-family: 'Nourd';
+    font-size: 1.25rem;
+    color: #CD6471;
+}
+
+/* Media query for phone screens */
+@media (max-width: 767px) {
+    .offcanvas {
+        width: 60% !important;
+    }
+    .celebrate-love {
+        font-size: 1rem;
+    }
+    
+    .kike-shintya {
+        font-size: 3rem;
+    }
+    
+    .date {
+        font-size: 1rem;
+    }
+    
+    .address {
+        font-size: 0.75rem;
+    }
+    
+    .time {
+        font-size: 0.75rem;
+    }
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.8) !important; 
+    background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .dropdown-item:hover,
@@ -41,16 +111,27 @@ body {
     color: white !important; 
 }
 
-header,
-footer {
-    /* Add padding or margin to create space for the background */
-    padding-top: 50px; /* Adjust as needed */
+header {
+    padding-top: 1px !important;
 }
 
 .nav-tabs .nav-link {
     color: black !important;
 }
 
+.navbar-rose {
+    background-color: #faf7f2;
+}
+
 .accordion-item {
     background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.language-link a {
+    margin-right: 10px;
+    color:aqua;
+}
+
+.language-link a.active-link {
+    color: blue;
 }
