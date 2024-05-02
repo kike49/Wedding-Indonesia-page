@@ -39,6 +39,7 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a class="nav-link" id="home-tab" href="#home" role="tab" aria-controls="home" aria-selected="false"><span id="home_tab_head"></span></a>
                             <a class="nav-link" data-bs-toggle="collapse" id="invitation-tab" href="#invitation" role="tab" aria-controls="invitation" aria-selected="false"><span id="invitation_tab_head"></span></a>
                             <a class="nav-link" data-bs-toggle="collapse" id="journey-tab" href="#journey" role="tab" aria-controls="journey" aria-selected="false"><span id="journey_tab_head"></span></a>
                             <a class="nav-link" data-bs-toggle="collapse" id="RSVP-tab" href="#RSVP" role="tab" aria-controls="RSVP" aria-selected="false"><span id="rsvp_tab_head"></span></a>
@@ -454,6 +455,7 @@
                 'time': '11.00 - 15.00 GMT +7',
                 'rsvp_button': 'RSVP',
 
+                'home_tab_head': 'Home',
                 'invitation_tab_head': 'Invitation',
                 'journey_tab_head': "The Journey",
                 'rsvp_tab_head': "RSVP",
@@ -524,6 +526,7 @@
                 'time': '11.00 - 15.00 GMT +7',
                 'rsvp_button': 'Registrarse',
 
+                'home_tab_head': 'Inicio',
                 'invitation_tab_head': 'Invitación',
                 'journey_tab_head': "La historia de amor",
                 'rsvp_tab_head': "Confirma tu asistencia",
@@ -592,8 +595,9 @@
                 'date': 'Sabtu 15 Juni 2024',
                 'address': 'Melchior Avenue, Kebun Raya Bogor',
                 'time': '11.00 - 15.00 WIB',
-                'rsvp_button': 'Registrasi',
+                'rsvp_button': 'Daftar',
 
+                'home_tab_head': 'Home',
                 'invitation_tab_head': 'Undangan',
                 'journey_tab_head': "Perjalanan Cinta",
                 'rsvp_tab_head': "Registrasi",
@@ -679,33 +683,74 @@
             // For the submit button
             const button2 = document.getElementById('submit-button');
             if (button2) {
-                button2.textContent = translations[lang][key];
+                button2.textContent = translations[lang]['submit_button'];
             }
         }
         // Initial translation (default language)
         changeLanguage('en');
     </script>
 
-<!-- Script to toggle the off-canvas menu -->
+<!-- Script to open/close sections when click button or off-canvas -->
     <script>
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                var target = this.getAttribute('href'); // Get the href attribute
+                event.preventDefault();
+                var target = this.getAttribute('href');
                 var targetId = target.slice(1);
-                var targetContent = document.querySelector(target); // Get the corresponding content container
-                // Show the corresponding content container
+                var targetContent = document.querySelector(target);
+                // Close all sections first
+                document.querySelectorAll('.tab-pane1').forEach(tab => {
+                    tab.classList.remove('show', 'active');
+                });
+                // Wait for a short delay before scrolling to the target content
+                setTimeout(function() {
+                    if (targetContent) {
+                        targetContent.classList.add('show', 'active');
+                        // Calculate the offset and scroll to it
+                        var navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        var offset = targetContent.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        window.scrollTo({ top: offset, behavior: 'smooth' });
+                        // Collapse the off-canvas menu
+                        var offcanvasElement = document.querySelector('.offcanvas');
+                        var offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+                        offcanvas.hide();
+                    }
+                }, 500); // This is the delay in miliseconds
+            });
+        });
+
+
+        // To close other sections when RSVP button is clicked
+        document.getElementById('RSVP-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            var target = this.getAttribute('data-bs-target');
+            var targetContent = document.querySelector(target);
+            setTimeout(function() {
                 if (targetContent) {
                     document.querySelectorAll('.tab-pane1').forEach(tab => {
-                        tab.classList.remove('show', 'active'); // Hide all other content containers
+                        if (tab.id !== targetContent.id) {
+                            tab.classList.remove('show', 'active');
+                        }
                     });
-                    targetContent.classList.add('show', 'active'); // Show the corresponding content container
-                    // Collapse the off-canvas menu
-                    var offcanvasElement = document.querySelector('.offcanvas');
-                    var offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-                    offcanvas.hide();
+                    targetContent.classList.toggle('show', 'active');
+                    // Calculate the offset and scroll to it
+                    var navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    var offset = targetContent.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    window.scrollTo({ top: offset, behavior: 'smooth' });
                 }
+            }, 500);
+        });
+
+        // To close everything when clicking the home tab
+        document.getElementById('home-tab').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelectorAll('.tab-pane1').forEach(tab => {
+                tab.classList.remove('show', 'active');
             });
+            // Collapse the off-canvas menu
+            var offcanvasElement = document.querySelector('.offcanvas');
+            var offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+            offcanvas.hide();
         });
     </script>
 </body>
