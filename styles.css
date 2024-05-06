@@ -45,6 +45,14 @@ body {
     width: 100%;
 }
 
+.map-photo {
+    height: auto;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .celebrate-love {
     font-family: 'Nourd';
     font-size: 2rem;
