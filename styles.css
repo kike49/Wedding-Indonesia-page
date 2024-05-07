@@ -1,3 +1,4 @@
+/* Custom fonts */
 @font-face {
     font-family: 'Nourd';
     src: url('/Fonts/woff2/nourd_heavy.woff2') format('woff2'),
@@ -32,27 +33,7 @@ b {
     font-weight: 700;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: 'Nourd' !important;
-    background-color: #FAF7F2 !important;
-}
-
-.background-photo {
-    height: auto;
-    width: 100%;
-}
-
-.map-photo {
-    height: auto;
-    width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* Text style for the home page */
 .celebrate-love {
     font-family: 'Nourd';
     font-size: 2rem;
@@ -109,6 +90,44 @@ body {
     }
 }
 
+/* Media query for laptop screens */
+@media (min-width: 768px) {
+    .carousel-item img {
+        width: 50% !important;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .carousel-control-next,
+    .carousel-control-prev {
+        filter: invert(100%);
+    }
+}
+
+header {
+    padding-top: 1px !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Nourd' !important;
+    background-color: #FAF7F2 !important;
+}
+
+.background-photo {
+    height: auto;
+    width: 100%;
+}
+
+.map-photo {
+    height: auto;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .card {
     background-color: rgba(255, 255, 255, 0.8) !important;
 }
@@ -119,20 +138,12 @@ body {
     color: white !important; 
 }
 
-header {
-    padding-top: 1px !important;
-}
-
 .nav-tabs .nav-link {
     color: black !important;
 }
 
 .navbar-rose {
     background-color: #faf7f2;
-}
-
-.accordion-item {
-    background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .language-link a {
@@ -142,4 +153,8 @@ header {
 
 .language-link a.active-link {
     color: blue;
+}
+
+.accordion-item {
+    background-color: rgba(255, 255, 255, 0) !important;
 }
