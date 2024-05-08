@@ -98,6 +98,12 @@ b {
         margin: 0 auto;
     }
 
+    .map-photo {
+        width: 75% !important;
+        height: auto;
+        margin: 0 auto;
+    }
+
     .carousel-control-next,
     .carousel-control-prev {
         filter: invert(100%);
